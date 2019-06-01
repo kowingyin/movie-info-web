@@ -13,7 +13,7 @@ export class DataService {
 
   constructor(private http: HttpClient,private interceptor:AuthInterceptor) { }
   addUser(name,username,password,email){
-    var addUser='https://cors-anywhere.herokuapp.com/https://cycbookshop.herokuapp.com/users'
+    //var addUser='https://cors-anywhere.herokuapp.com/https://cycbookshop.herokuapp.com/users'
 	 
     let authorizationData = 'Basic '+  btoa(`${username}:${password}`);
       //  console.log(`${username}:${password}`+' '+choice);
@@ -27,31 +27,31 @@ export class DataService {
     .set('Access-Control-Allow-Origin','*')
     .set('Access-Control-Allow-Credentials', 'true')
     .set('X-Requested-With', 'HttpRequest')
-    return this.http.post('http://localhost:8080/accounts',{'name':`${name}`,'email':`${email}`},{headers:httpOptions}).pipe(
+    return this.http.post('https://sheltered-scrubland-82828.herokuapp.com/accounts',{'name':`${name}`,'email':`${email}`},{headers:httpOptions}).pipe(
       retry(1),
      catchError(this.handleError)
     );
   }
   getFilms(query,year) {
-    return this.http.get('http://localhost:8080/films?q='+query+'&y='+year).pipe(
+    return this.http.get('https://sheltered-scrubland-82828.herokuapp.com/films?q='+query+'&y='+year).pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
   getFilmsWithId(imdbId){
-    return this.http.get('http://localhost:8080/films?i='+imdbId+'&y=').pipe(
+    return this.http.get('https://sheltered-scrubland-82828.herokuapp.com/films?i='+imdbId+'&y=').pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
   getCommentOfFilm(imdbId){
-    return this.http.get('http://localhost:8080/comment?i='+imdbId).pipe(
+    return this.http.get('https://sheltered-scrubland-82828.herokuapp.com/comment?i='+imdbId).pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
   postComment(imdbId,Comment){
-    //return this.http.post('http://localhost:8080/comment',)
+    //return this.http.post('https://sheltered-scrubland-82828.herokuapp.com/comment',)
   }
   updateComment(){
 
@@ -63,7 +63,7 @@ export class DataService {
 
   }
   getFav(){
-    return this.http.get('http://localhost:8080/favourite')
+    return this.http.get('https://sheltered-scrubland-82828.herokuapp.com/favourite')
   }
   delFav(){
 
