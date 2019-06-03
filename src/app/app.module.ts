@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FilmDetailsComponent } from './film-details/film-details.component';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -22,7 +23,8 @@ import { FavouriteComponent } from './favourite/favourite.component';
     RegisterComponent,
     HomeComponent,
     FilmDetailsComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

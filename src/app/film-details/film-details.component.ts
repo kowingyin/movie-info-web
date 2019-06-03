@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 export class FilmDetailsComponent implements OnInit {
   imdbId: string;
   CommentList: Object;
-  filmDetails: Object;
+  filmDetails: any;
 
   constructor(private route: ActivatedRoute,
     private router: Router,private data: DataService) { }
@@ -21,11 +21,11 @@ export class FilmDetailsComponent implements OnInit {
         this.imdbId = params.imdbId;
       });
       
-      this.data.getFilmsWithId(this.imdbId).subscribe(data=>{
+      this.data.getFilmsWithId(this.imdbId).subscribe((data:any)=>{
         this.filmDetails = data;
         console.log(this.filmDetails);
       })
-      this.data.getCommentOfFilm(this.imdbId).subscribe(data=>{
+      this.data.getCommentOfFilm(this.imdbId).subscribe((data:any)=>{
         this.CommentList = data;
         console.log(this.CommentList);
       })
